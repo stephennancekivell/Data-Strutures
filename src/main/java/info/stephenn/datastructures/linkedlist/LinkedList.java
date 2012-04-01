@@ -8,7 +8,7 @@ public class LinkedList<T> {
 		
 	}
 	
-	public void add(T value) throws Exception{
+	public void add(T value) {
 		if (head == null){
 			head = new Node<T>(value);
 			tail = head;
@@ -19,4 +19,22 @@ public class LinkedList<T> {
 			tail = newNode;
 		}
 	}
+	
+	public T get(int index) throws Exception{
+		Node<T> n = head;
+		for (int i=0; i < index; i++){
+			if (n == null){
+				throw new Exception("index out of range");
+			}
+			n = n.getChild();
+		}
+		return n.getValue();
+	}
+	
+	public T getFirstValue(){
+		if (head != null){
+			return head.getValue();
+		}
+		else return null;
+	}	
 }

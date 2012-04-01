@@ -16,7 +16,7 @@ public class Node<T> {
 		return child;
 	}
 
-	public void setChild(Node<T> child) throws Exception {
+	public void setChild(Node<T> child){
 		this.child = child;
 	}
 	
