@@ -31,4 +31,16 @@ public class TestLinkedList {
 			assertTrue(false);
 		}
 	}
+	
+	@Test
+	public void shouldRemove() throws Exception{
+		LinkedList<String> ll = new LinkedList<String>();
+		ll.add("one");
+		ll.add("two");
+		
+		
+		ll.removeAt(0);
+		
+		assertEquals("two",ll.get(0));
+	}
 }

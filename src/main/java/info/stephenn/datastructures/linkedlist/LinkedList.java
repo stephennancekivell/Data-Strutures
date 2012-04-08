@@ -24,7 +24,7 @@ public class LinkedList<T> {
 		Node<T> n = head;
 		for (int i=0; i < index; i++){
 			if (n == null){
-				throw new Exception("index out of range");
+				throw new java.lang.IndexOutOfBoundsException();
 			}
 			n = n.getChild();
 		}
@@ -36,5 +36,20 @@ public class LinkedList<T> {
 			return head.getValue();
 		}
 		else return null;
+	}
+
+	public void removeAt(int index) throws Exception {
+		if (index==0){
+			this.head = this.head.getChild();
+		} else {
+			Node<T> a = this.head;
+			if (a == null) throw new java.lang.IndexOutOfBoundsException("list head is null");
+			Node<T> b = this.head.getChild();
+			for (int i =0; i < index; i++){
+				if (i==index){
+					
+				}
+			}
+		}
 	}	
 }
