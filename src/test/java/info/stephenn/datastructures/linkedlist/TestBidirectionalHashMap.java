@@ -2,6 +2,8 @@ package info.stephenn.datastructures.linkedlist;
 
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
+
 import org.junit.Test;
 
 public class TestBidirectionalHashMap {
@@ -19,10 +21,10 @@ public class TestBidirectionalHashMap {
 	public void canPutAndGetOne(){
 		BidirectionalHashMap<String> biMap = new BidirectionalHashMap<String>();
 		biMap.put("a", "b");
-		assertEquals("a",biMap.get("a"));
-		assertEquals("b",biMap.getPair("a"));
-		assertEquals("b",biMap.get("b"));
-		assertEquals("a",biMap.getPair("b"));
+		assertEquals("a",biMap.getKey("a"));
+		assertEquals("b",biMap.getValueFromKey("a"));
+		assertEquals("b",biMap.getKey("b"));
+		assertEquals("a",biMap.getValueFromKey("b"));
 	}
 	
 	@Test
@@ -32,11 +34,11 @@ public class TestBidirectionalHashMap {
 		biMap.put("c", "d");
 		biMap.put("e", "f");
 		
-		assertEquals("a", biMap.get("a"));
-		assertEquals("b", biMap.get("b"));
-		assertEquals("c", biMap.get("c"));
-		assertEquals("d", biMap.get("d"));
-		assertEquals("e", biMap.get("e"));
-		assertEquals("f", biMap.get("f"));	
+		assertEquals("a", biMap.getKey("a"));
+		assertEquals("b", biMap.getKey("b"));
+		assertEquals("c", biMap.getKey("c"));
+		assertEquals("d", biMap.getKey("d"));
+		assertEquals("e", biMap.getKey("e"));
+		assertEquals("f", biMap.getKey("f"));
 	}
 }

@@ -9,24 +9,24 @@ public class BidirectionalHashMap<T> {
 		objects = new Node[OBJECTS_START_SIZE];
 	}
 	
-	public void put(T a, T b){
-		this.putNode(new Node<T>(a,b));
-		this.putNode(new Node<T>(b,a));
+	public void put(T key, T value){
+		this.putNode(new Node<T>(key,value));
+		this.putNode(new Node<T>(value,key));
 	}
 	
-	public T get(T value){
-		Node<T> node = getNodeFor(value);
+	public T getKey(T key){
+		Node<T> node = getNodeFor(key);
 		if (node != null){
-			return node.value;
+			return node.key;
 		} else {
 			return null;
 		}
 	}
 	
-	public T getPair(T value){
-		Node<T> node = getNodeFor(value);
+	public T getValueFromKey(T key){
+		Node<T> node = getNodeFor(key);
 		if (node != null){
-			return node.pair;
+			return node.value;
 		} else {
 			return null;
 		}
@@ -50,7 +50,7 @@ public class BidirectionalHashMap<T> {
 		final int startIndex = index % array.length;
 		
 		while(true){
-			if (array[index % array.length] == null || array[index % array.length].value == value){
+			if (array[index % array.length] == null || array[index % array.length].key == value){
 				return index % array.length;
 			} else {
 				index +=1;
@@ -61,7 +61,7 @@ public class BidirectionalHashMap<T> {
 	}
 	
 	private void putNodeInto(Node<T> node, Node<T>[] array) {
-		array[indexFor(node.value, array)] = node;
+		array[indexFor(node.key, array)] = node;
 	}
 
 	private Node<T>[] grow(){
@@ -75,15 +75,15 @@ public class BidirectionalHashMap<T> {
 	}
 
 	private class Node<T>{
+		final T key;
 		final T value;
-		final T pair;
-		public Node(T a, T b){
-			value = a;
-			pair = b;
+		public Node(T key, T value){
+			this.key = key;
+			this.value = value;
 		}
 		@Override
 		public int hashCode() {
-			return value.hashCode();
+			return key.hashCode();
 		}
 	}
 }
