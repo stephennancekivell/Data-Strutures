@@ -37,8 +37,9 @@ public class HashMap<K,V> {
 	}
 	
 	private int findIndexFor(K key, Entry<K,V>[] eTable){
-		final int startIndex = key.hashCode() % eTable.length;
+		final int startIndex = Math.abs(key.hashCode()) % eTable.length;
 		int index = startIndex;
+		int collisions =0;
 		
 		while(true){
 			if (eTable[index] == null || eTable[index].key.equals(key)) {
@@ -46,6 +47,7 @@ public class HashMap<K,V> {
 				return index;
 			} else {
 				index = (index+1) % eTable.length;
+				collisions+=1;
 				//TODO experiment with value.
 				assert(index != startIndex);
 			}

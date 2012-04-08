@@ -53,7 +53,7 @@ public class TestHashMap {
 	public void profile1(){
 		HashMap<String,Integer> map = new HashMap<String,Integer>();
 		
-		long toPutIn = 10000;
+		long toPutIn = 10000000;
 		long start = System.currentTimeMillis();
 		
 		for (int i=0; i < toPutIn; i++){
@@ -64,6 +64,6 @@ public class TestHashMap {
 		
 		float insertsPerMilliSecond = toPutIn / (end-start);
 		
-		System.out.println("inserts pr milli "+ insertsPerMilliSecond);
+		System.out.println("inserts pr milli "+ insertsPerMilliSecond + " got to size "+map.getEntryCount() +" over "+(end-start)+"ms");
 	}
 }
