@@ -1,7 +1,6 @@
 package info.stephenn.datastructures.linkedlist;
 
 public class BidirectionalHashMap<T> {
-	//private Object[] objects; // static array of object to grow exponentially.
 	private Node<T>[] objects;
 	private int objects_stored = 0;
 	private static final int OBJECTS_START_SIZE = 4;
