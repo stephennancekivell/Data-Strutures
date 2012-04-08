@@ -6,7 +6,12 @@ public class HashMap<K,V> {
 	
 	static int INIT_CAPACITY=2;
 	int threshHold;
-	int entryCount;
+	private int entryCount;
+	
+	public int getEntryCount() {
+		return entryCount;
+	}
+
 	float LOAD_FACTOR = 0.7f;
 	
 	public HashMap(){
@@ -36,11 +41,14 @@ public class HashMap<K,V> {
 		int index = startIndex;
 		
 		while(true){
+			if (index > eTable.length-1){
+				System.out.println(index);
+			}
 			if (eTable[index] == null || eTable[index].key.equals(key)) {
 											// could compair hashes.
 				return index;
 			} else {
-				index+=1;
+				index = (index+1) % eTable.length;
 				//TODO experiment with value.
 				assert(index != startIndex);
 			}
