@@ -41,11 +41,8 @@ public class HashMap<K,V> {
 		int index = startIndex;
 		
 		while(true){
-			if (index > eTable.length-1){
-				System.out.println(index);
-			}
 			if (eTable[index] == null || eTable[index].key.equals(key)) {
-											// could compair hashes.
+											// could compare hashes.
 				return index;
 			} else {
 				index = (index+1) % eTable.length;
