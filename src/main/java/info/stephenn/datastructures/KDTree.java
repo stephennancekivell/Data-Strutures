@@ -1,6 +1,5 @@
 package info.stephenn.datastructures;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -51,5 +50,35 @@ public class KDTree {
 				return null; // doesnt exist
 			}
 		}
+		
+		public Node getNearest(List<Integer> lookup){
+			return null;
+			//TODO
+		}
+		
+		public Node fildClosest(Node currentBest, List<Integer> toKeys){
+			if (currentBest == null) return this;
+			
+			
+			return null;
+		}
+		
+		public int squaredDistanceTo(Node n){
+			assert(n.keys.size()== this.keys.size());
+			int distance =0;
+			for (int i=0; i < n.keys.size(); i++){
+				int diff = (keys.get(i)-n.keys.get(i));
+				distance += diff * diff;
+			}
+			return distance;
+		}
+		
+		public static class point{
+			public final int[] values;
+			public point(int[] _values){
+				this.values = _values;
+			}
+		}
 	}
+	
 }
