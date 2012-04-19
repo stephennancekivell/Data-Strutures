@@ -119,13 +119,13 @@ public class KDTree {
 		public String toString() {
 			String ret = "("+this.axis+","+ Arrays.toString(point.values);
 			if (left != null)
-				ret += left;
+				ret += " l"+left;
 			
-			ret += ",";
+			
 			if (right != null)
-				ret += right;
+				ret += " r"+right;
 			
-			ret += ") ";
+			ret += ")";
 			return ret;
 		}
 	}

@@ -72,7 +72,6 @@ public class TestKDTree {
 		list.add(new Point(new int[]{3,3}));
 		
 		Node head = KDTree.build(list, 0);
-		System.out.println(head.toString());
 		
 		Node result = head.findClosest(null, new Point(new int[]{2,1}));
 		assertNotNull(result);
@@ -81,6 +80,24 @@ public class TestKDTree {
 		result = head.findClosest(null, new Point(new int[]{2,2}));
 		assertNotNull(result);
 		assertArrayEquals(new int[] {2,1}, result.point.values);
+	}
+	
+	@Test
+	public void canFindNearestWhenNearestIsDownFarChild(){
+		List<Point> list = new ArrayList<Point>();
+		list.add(new Point(new int[]{7,7}));
+		list.add(new Point(new int[]{6,4}));
+		list.add(new Point(new int[]{5,8}));
+		list.add(new Point(new int[]{4,1}));
+		list.add(new Point(new int[]{2,4}));
+		list.add(new Point(new int[]{2,8}));
+		
+		Node head = KDTree.build(list, 0);
+		System.out.println(head.toString());
+		
+		Node result = head.findClosest(null, new Point(new int[]{6,1}));
+		assertNotNull(result);
+		assertArrayEquals(new int[] {4,1}, result.point.values);
 	}
 	
 	@Test
